@@ -31,35 +31,37 @@
 }
 
 /*
- * Neutral / professional-mode palette. This is what everything gets when no
- * data-theme is set (professional mode always, fun mode's untagged pages).
- * Fandom themes below override these per [data-theme="..."] scope - see
- * CLAUDE.md for how theming is applied (content-level, not route-level).
+ * The whole site is one theme now (Zelda - see CLAUDE.md). SiteShell always
+ * sets data-theme="zelda", so the [data-theme="zelda"] block below is what
+ * actually renders everywhere; this :root block just mirrors the same
+ * values as a pre-hydration/no-JS fallback so there's no light-then-dark
+ * flash before that attribute takes effect.
  */
 :root {
-  color-scheme: light;
-  --background: oklch(0.99 0.002 260);
-  --foreground: oklch(0.2 0.01 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.01 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.01 260);
-  --primary: oklch(0.5 0.16 264);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.004 260);
-  --secondary-foreground: oklch(0.25 0.01 260);
-  --muted: oklch(0.96 0.004 260);
-  --muted-foreground: oklch(0.52 0.01 260);
-  --accent: oklch(0.95 0.02 264);
-  --accent-foreground: oklch(0.35 0.12 264);
+  color-scheme: dark;
+  --background: oklch(0.14 0.02 250);
+  --foreground: oklch(0.97 0.02 90);
+  --card: oklch(0.22 0.03 250);
+  --card-foreground: oklch(0.97 0.02 90);
+  --popover: oklch(0.22 0.03 250);
+  --popover-foreground: oklch(0.97 0.02 90);
+  --primary: oklch(0.78 0.14 85);
+  --primary-foreground: oklch(0.16 0.02 250);
+  --secondary: oklch(0.55 0.1 200);
+  --secondary-foreground: oklch(0.97 0.02 90);
+  --muted: oklch(0.28 0.02 250);
+  --muted-foreground: oklch(0.78 0.02 90);
+  --accent: oklch(0.55 0.1 200);
+  --accent-foreground: oklch(0.97 0.02 90);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.005 260);
-  --input: oklch(0.9 0.005 260);
-  --ring: oklch(0.5 0.16 264);
-  --radius: 0.625rem;
+  --border: oklch(0.7 0.05 90 / 0.25);
+  --input: oklch(0.7 0.05 90 / 0.2);
+  --ring: oklch(0.78 0.14 85);
+  --radius: 0.5rem;
   --theme-body: var(--font-inter);
-  --theme-heading: var(--font-inter);
-  --theme-heading-tracking: -0.025em;
+  --theme-heading: var(--font-cinzel-decorative);
+  --theme-heading-tracking: 0.03em;
+  --theme-heading-leading: 1.1;
   --theme-pattern: none;
 }
 
@@ -76,13 +78,12 @@ body {
 }
 
 /* ============================================================
-   THEME SYSTEM
-   Each [data-theme] block redefines the semantic tokens plus a
-   pair of font stacks (--theme-body / --theme-heading) and a set
-   of decorative variables consumed by .theme-surface below. See
-   src/components/site-shell.tsx for where data-theme gets applied -
-   it wraps the whole page (nav + content), so switching data-theme
-   reskins everything at once.
+   THEME
+   src/components/site-shell.tsx hardcodes data-theme="zelda" on
+   every page's wrapper, so this is the only block below. Kept as
+   an attribute-scoped block (matching :root above) rather than
+   folded away entirely, since it costs nothing and leaves the door
+   open if a second theme ever comes back.
    ============================================================ */
 
 [data-theme] {
@@ -109,202 +110,36 @@ body {
   background-position: var(--theme-pattern-pos, 0 0);
 }
 
-/* ---------------- NINTENDO ---------------- */
-[data-theme="nintendo"] {
-  color-scheme: light;
-  --background: oklch(0.98 0.02 230);
-  --foreground: oklch(0.23 0.06 264);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.23 0.06 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.23 0.06 264);
-  --primary: oklch(0.58 0.23 25);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.72 0.16 235);
-  --secondary-foreground: oklch(0.15 0.03 264);
-  --muted: oklch(0.93 0.03 230);
-  --muted-foreground: oklch(0.45 0.05 264);
-  --accent: oklch(0.85 0.18 95);
-  --accent-foreground: oklch(0.25 0.08 60);
-  --border: oklch(0.4 0.08 264);
-  --input: oklch(0.85 0.03 230);
-  --ring: oklch(0.58 0.23 25);
-  --radius: 0.25rem;
-  --theme-body: var(--font-inter);
-  --theme-heading: var(--font-press-start);
-  --theme-heading-tracking: 0;
-  --theme-heading-leading: 1.4;
-  --theme-pattern: radial-gradient(oklch(0.72 0.16 235 / 0.18) 1.5px, transparent 1.6px);
-  --theme-pattern-size: 22px 22px;
-}
-
-/* ---------------- ONE PIECE ---------------- */
-[data-theme="one-piece"] {
-  color-scheme: light;
-  --background: oklch(0.92 0.04 85);
-  --foreground: oklch(0.28 0.05 55);
-  --card: oklch(0.96 0.03 85);
-  --card-foreground: oklch(0.28 0.05 55);
-  --popover: oklch(0.96 0.03 85);
-  --popover-foreground: oklch(0.28 0.05 55);
-  --primary: oklch(0.52 0.21 27);
-  --primary-foreground: oklch(0.97 0.02 85);
-  --secondary: oklch(0.5 0.12 240);
-  --secondary-foreground: oklch(0.97 0.02 85);
-  --muted: oklch(0.86 0.05 82);
-  --muted-foreground: oklch(0.42 0.06 55);
-  --accent: oklch(0.8 0.16 75);
-  --accent-foreground: oklch(0.28 0.09 45);
-  --border: oklch(0.55 0.08 55);
-  --input: oklch(0.8 0.05 82);
-  --ring: oklch(0.52 0.21 27);
-  --radius: 0.375rem;
-  --theme-body: var(--font-inter);
-  --theme-heading: var(--font-bangers);
-  --theme-heading-tracking: 0.02em;
-  --theme-heading-leading: 1;
-  --theme-pattern: repeating-linear-gradient(
-    45deg,
-    oklch(0.5 0.12 240 / 0.06) 0 18px,
-    transparent 18px 36px
-  );
-}
-
-/* ---------------- SEAHAWKS ---------------- */
-[data-theme="seahawks"] {
+/* ---------------- ZELDA ----------------
+   No decorative --theme-pattern here - the looping background video
+   (src/components/zelda-video-background.tsx, rendered on every page via
+   src/components/zelda-page.tsx) provides the visual texture instead.
+   These tokens are still the fallback shown before the video mounts/if it
+   fails, and they drive the nav, footer, and any card UI floating on top
+   of the video. */
+[data-theme="zelda"] {
   color-scheme: dark;
-  --background: oklch(0.24 0.06 250);
-  --foreground: oklch(0.93 0.02 250);
-  --card: oklch(0.29 0.06 250);
-  --card-foreground: oklch(0.95 0.01 250);
-  --popover: oklch(0.29 0.06 250);
-  --popover-foreground: oklch(0.95 0.01 250);
-  --primary: oklch(0.78 0.2 130);
-  --primary-foreground: oklch(0.2 0.06 250);
-  --secondary: oklch(0.35 0.05 250);
-  --secondary-foreground: oklch(0.93 0.02 250);
-  --muted: oklch(0.32 0.04 250);
-  --muted-foreground: oklch(0.72 0.02 250);
-  --accent: oklch(0.78 0.2 130);
-  --accent-foreground: oklch(0.2 0.06 250);
-  --border: oklch(0.45 0.03 250);
-  --input: oklch(0.35 0.04 250);
-  --ring: oklch(0.78 0.2 130);
-  --radius: 0.25rem;
-  --theme-body: var(--font-oswald);
-  --theme-heading: var(--font-oswald);
-  --theme-heading-tracking: 0.04em;
-  --theme-heading-leading: 0.95;
-  --theme-pattern: linear-gradient(
-    115deg,
-    transparent 0 60%,
-    oklch(0.78 0.2 130 / 0.1) 60% 62%,
-    transparent 62% 70%,
-    oklch(0.72 0.02 250 / 0.08) 70% 71%,
-    transparent 71%
-  );
-  --theme-pattern-size: 100% 100%;
-}
-
-/* ---------------- DARK FANTASY ---------------- */
-[data-theme="dark-fantasy"] {
-  color-scheme: dark;
-  --background: oklch(0.16 0.015 300);
-  --foreground: oklch(0.85 0.03 85);
-  --card: oklch(0.2 0.02 300);
-  --card-foreground: oklch(0.87 0.03 85);
-  --popover: oklch(0.2 0.02 300);
-  --popover-foreground: oklch(0.87 0.03 85);
-  --primary: oklch(0.72 0.11 75);
-  --primary-foreground: oklch(0.15 0.02 300);
-  --secondary: oklch(0.3 0.05 20);
-  --secondary-foreground: oklch(0.9 0.03 85);
-  --muted: oklch(0.24 0.02 300);
-  --muted-foreground: oklch(0.6 0.03 85);
-  --accent: oklch(0.45 0.16 20);
-  --accent-foreground: oklch(0.92 0.03 85);
-  --border: oklch(0.34 0.03 300);
-  --input: oklch(0.26 0.02 300);
-  --ring: oklch(0.72 0.11 75);
-  --radius: 0.125rem;
-  --theme-body: var(--font-garamond);
-  --theme-heading: var(--font-cinzel);
-  --theme-heading-tracking: 0.06em;
-  --theme-heading-leading: 1.15;
-  --theme-pattern: radial-gradient(
-    circle at 50% -10%,
-    oklch(0.45 0.16 20 / 0.22),
-    transparent 55%
-  );
-  --theme-pattern-size: 100% 100%;
-}
-
-/* ---------------- MINECRAFT ---------------- */
-[data-theme="minecraft"] {
-  color-scheme: light;
-  --background: oklch(0.8 0.05 78);
-  --foreground: oklch(0.26 0.03 60);
-  --card: oklch(0.88 0.04 95);
-  --card-foreground: oklch(0.26 0.03 60);
-  --popover: oklch(0.88 0.04 95);
-  --popover-foreground: oklch(0.26 0.03 60);
-  --primary: oklch(0.55 0.14 140);
-  --primary-foreground: oklch(0.98 0.01 95);
-  --secondary: oklch(0.45 0.06 60);
-  --secondary-foreground: oklch(0.96 0.01 95);
-  --muted: oklch(0.78 0.04 95);
-  --muted-foreground: oklch(0.4 0.03 60);
-  --accent: oklch(0.6 0.09 55);
-  --accent-foreground: oklch(0.98 0.01 95);
-  --border: oklch(0.4 0.04 60);
-  --input: oklch(0.72 0.04 95);
-  --ring: oklch(0.55 0.14 140);
-  --radius: 0rem;
-  --theme-body: var(--font-vt323);
-  --theme-heading: var(--font-vt323);
-  --theme-heading-tracking: 0.01em;
-  --theme-heading-leading: 1;
-  /* Tiled grass block: green grass cap + speckles over a dirt body,
-     dark block seams, and a bottom/right bevel so each 80px tile
-     reads as a 3D stacked block. Layers paint front -> back. */
-  --theme-pattern:
-    /* block seams */
-    linear-gradient(90deg, oklch(0.34 0.03 60 / 0.5) 0 2px, transparent 2px),
-    linear-gradient(oklch(0.34 0.03 60 / 0.5) 0 2px, transparent 2px),
-    /* bevel: right + bottom shadow inside each tile */
-    linear-gradient(to left, oklch(0.4 0.03 55 / 0.35) 0 4px, transparent 4px),
-    linear-gradient(to top, oklch(0.4 0.03 55 / 0.35) 0 4px, transparent 4px),
-    /* grass-cap speckles */
-    radial-gradient(oklch(0.7 0.15 140) 0 3px, transparent 3px),
-    radial-gradient(oklch(0.5 0.13 140) 0 3px, transparent 3px),
-    /* dirt speckles */
-    radial-gradient(oklch(0.56 0.05 60 / 0.6) 0 4px, transparent 4px),
-    radial-gradient(oklch(0.88 0.04 85 / 0.7) 0 3px, transparent 3px),
-    radial-gradient(oklch(0.56 0.05 60 / 0.6) 0 3px, transparent 3px),
-    radial-gradient(oklch(0.88 0.04 85 / 0.6) 0 4px, transparent 4px),
-    /* grass cap band */
-    linear-gradient(
-      to bottom,
-      oklch(0.6 0.14 140) 0 15px,
-      oklch(0.48 0.13 140) 15px 19px,
-      transparent 19px
-    );
-  --theme-pattern-size: 80px 80px;
-  --theme-pattern-pos:
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    26px 7px,
-    58px 11px,
-    18px 42px,
-    52px 30px,
-    36px 64px,
-    66px 54px,
-    0 0;
-}
-
-/* Minecraft's pixel font is small; bump base reading size. */
-[data-theme="minecraft"] {
-  font-size: 1.15rem;
+  --background: oklch(0.14 0.02 250);
+  --foreground: oklch(0.97 0.02 90);
+  --card: oklch(0.22 0.03 250);
+  --card-foreground: oklch(0.97 0.02 90);
+  --popover: oklch(0.22 0.03 250);
+  --popover-foreground: oklch(0.97 0.02 90);
+  --primary: oklch(0.78 0.14 85);
+  --primary-foreground: oklch(0.16 0.02 250);
+  --secondary: oklch(0.55 0.1 200);
+  --secondary-foreground: oklch(0.97 0.02 90);
+  --muted: oklch(0.28 0.02 250);
+  --muted-foreground: oklch(0.78 0.02 90);
+  --accent: oklch(0.55 0.1 200);
+  --accent-foreground: oklch(0.97 0.02 90);
+  --border: oklch(0.7 0.05 90 / 0.25);
+  --input: oklch(0.7 0.05 90 / 0.2);
+  --ring: oklch(0.78 0.14 85);
+  --radius: 0.5rem;
+  --theme-body: var(--font-inter);
+  --theme-heading: var(--font-cinzel-decorative);
+  --theme-heading-tracking: 0.03em;
+  --theme-heading-leading: 1.1;
+  --theme-pattern: none;
 }

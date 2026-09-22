@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
-import SiteShell from "@/components/site-shell";
+import ZeldaPage from "@/components/zelda-page";
 
 export const metadata: Metadata = {
   title: "Work — Lincoln Nordquist",
@@ -44,7 +44,7 @@ const PROJECTS = [
 
 export default function Work() {
   return (
-    <SiteShell theme="minecraft">
+    <ZeldaPage>
       <div className="flex flex-col gap-4">
         <header className="flex max-w-2xl flex-col gap-4">
           <h1 className="theme-heading text-4xl font-bold tracking-tight sm:text-5xl">
@@ -61,7 +61,7 @@ export default function Work() {
           {PROJECTS.map((project) => (
             <article
               key={project.name}
-              className="group flex flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
+              className="group flex flex-col gap-4 rounded-xl border border-border bg-card/70 p-6 backdrop-blur-sm transition-colors hover:border-primary/50"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex flex-col gap-1">
@@ -91,6 +91,6 @@ export default function Work() {
           ))}
         </div>
       </div>
-    </SiteShell>
+    </ZeldaPage>
   );
 }

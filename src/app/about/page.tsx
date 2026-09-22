@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SiteShell from "@/components/site-shell";
+import ZeldaPage from "@/components/zelda-page";
 
 export const metadata: Metadata = {
   title: "About — Lincoln Nordquist",
@@ -48,7 +48,7 @@ const VALUES = [
 
 export default function About() {
   return (
-    <SiteShell theme="dark-fantasy">
+    <ZeldaPage>
       <div className="flex flex-col gap-4">
         <header className="flex flex-col gap-4">
           <h1 className="theme-heading text-4xl font-bold tracking-tight sm:text-5xl">
@@ -113,6 +113,6 @@ export default function About() {
           </ol>
         </section>
       </div>
-    </SiteShell>
+    </ZeldaPage>
   );
 }

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { THEME_META, type Theme } from "@/lib/themes";
 
 const links = [
   { href: "/", label: "Home" },
@@ -38,11 +37,10 @@ function NavLink({
   );
 }
 
-export default function Nav({ theme }: { theme: Theme }) {
+export default function Nav() {
   const pathname = usePathname();
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
-  const label = THEME_META[theme].label;
 
   return (
     <header className="border-b border-border">
@@ -53,9 +51,6 @@ export default function Nav({ theme }: { theme: Theme }) {
         {links.map((link) => (
           <NavLink key={link.href} {...link} active={isActive(link.href)} />
         ))}
-        <span className="ml-auto rounded-full border border-primary/40 bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-          {label}
-        </span>
       </nav>
     </header>
   );

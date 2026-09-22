@@ -1,24 +1,26 @@
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
-import type { Theme } from "@/lib/themes";
 
 export default function SiteShell({
-  theme,
+  background,
   children,
 }: {
-  theme: Theme;
+  background?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <div
-      data-theme={theme}
-      className="theme-surface flex min-h-full flex-1 flex-col text-foreground"
+      data-theme="zelda"
+      className="theme-surface relative flex min-h-full flex-1 flex-col text-foreground"
     >
-      <Nav theme={theme} />
-      <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-        {children}
-      </main>
-      <Footer />
+      {background}
+      <div className="relative z-10 flex min-h-full flex-1 flex-col">
+        <Nav />
+        <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

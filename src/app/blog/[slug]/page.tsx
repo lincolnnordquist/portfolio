@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ArrowLeft } from "lucide-react";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import ZeldaPage from "@/components/zelda-page";
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -37,7 +38,7 @@ export default async function BlogPost({
   const post = getPostBySlug(slug);
 
   return (
-    <>
+    <ZeldaPage>
       <Link
         href="/blog"
         className="theme-heading mb-10 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -73,6 +74,6 @@ export default async function BlogPost({
           </footer>
         )}
       </article>
-    </>
+    </ZeldaPage>
   );
 }
