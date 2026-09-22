@@ -1,0 +1,425 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ============================================================
+   THEME SYSTEM
+   Each [data-theme] block redefines the semantic tokens plus a
+   pair of font stacks (--theme-body / --theme-heading) and a set
+   of decorative variables consumed by .theme-surface below.
+   The themed shell wraps the WHOLE page (nav + content), so
+   switching data-theme reskins everything at once.
+   ============================================================ */
+
+[data-theme] {
+  font-family: var(--theme-body, var(--font-inter));
+  background-color: var(--background);
+  color: var(--foreground);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.theme-heading {
+  font-family: var(--theme-heading, var(--font-inter));
+  letter-spacing: var(--theme-heading-tracking, -0.02em);
+  line-height: var(--theme-heading-leading, 1.05);
+}
+
+/* Decorative surface: a full-bleed themed backdrop pattern. */
+.theme-surface {
+  position: relative;
+  background-color: var(--background);
+  background-image: var(--theme-pattern, none);
+  background-size: var(--theme-pattern-size, auto);
+  background-position: var(--theme-pattern-pos, 0 0);
+}
+
+/* ---------------- PROFESSIONAL / BASE ---------------- */
+[data-theme='base'] {
+  color-scheme: light;
+  --background: oklch(0.99 0.002 260);
+  --foreground: oklch(0.2 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.01 260);
+  --primary: oklch(0.5 0.16 264);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.004 260);
+  --secondary-foreground: oklch(0.25 0.01 260);
+  --muted: oklch(0.96 0.004 260);
+  --muted-foreground: oklch(0.52 0.01 260);
+  --accent: oklch(0.95 0.02 264);
+  --accent-foreground: oklch(0.35 0.12 264);
+  --border: oklch(0.9 0.005 260);
+  --input: oklch(0.9 0.005 260);
+  --ring: oklch(0.5 0.16 264);
+  --radius: 0.625rem;
+  --theme-body: var(--font-inter);
+  --theme-heading: var(--font-inter);
+  --theme-heading-tracking: -0.025em;
+  --theme-pattern: none;
+}
+
+/* ---------------- NINTENDO ---------------- */
+[data-theme='nintendo'] {
+  color-scheme: light;
+  --background: oklch(0.98 0.02 230);
+  --foreground: oklch(0.23 0.06 264);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.23 0.06 264);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.23 0.06 264);
+  --primary: oklch(0.58 0.23 25);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.72 0.16 235);
+  --secondary-foreground: oklch(0.15 0.03 264);
+  --muted: oklch(0.93 0.03 230);
+  --muted-foreground: oklch(0.45 0.05 264);
+  --accent: oklch(0.85 0.18 95);
+  --accent-foreground: oklch(0.25 0.08 60);
+  --border: oklch(0.4 0.08 264);
+  --input: oklch(0.85 0.03 230);
+  --ring: oklch(0.58 0.23 25);
+  --radius: 0.25rem;
+  --theme-body: var(--font-inter);
+  --theme-heading: var(--font-press-start);
+  --theme-heading-tracking: 0;
+  --theme-heading-leading: 1.4;
+  --theme-pattern: radial-gradient(oklch(0.72 0.16 235 / 0.18) 1.5px, transparent 1.6px);
+  --theme-pattern-size: 22px 22px;
+}
+
+/* ---------------- ONE PIECE ---------------- */
+[data-theme='onepiece'] {
+  color-scheme: light;
+  --background: oklch(0.92 0.04 85);
+  --foreground: oklch(0.28 0.05 55);
+  --card: oklch(0.96 0.03 85);
+  --card-foreground: oklch(0.28 0.05 55);
+  --popover: oklch(0.96 0.03 85);
+  --popover-foreground: oklch(0.28 0.05 55);
+  --primary: oklch(0.52 0.21 27);
+  --primary-foreground: oklch(0.97 0.02 85);
+  --secondary: oklch(0.5 0.12 240);
+  --secondary-foreground: oklch(0.97 0.02 85);
+  --muted: oklch(0.86 0.05 82);
+  --muted-foreground: oklch(0.42 0.06 55);
+  --accent: oklch(0.8 0.16 75);
+  --accent-foreground: oklch(0.28 0.09 45);
+  --border: oklch(0.55 0.08 55);
+  --input: oklch(0.8 0.05 82);
+  --ring: oklch(0.52 0.21 27);
+  --radius: 0.375rem;
+  --theme-body: var(--font-inter);
+  --theme-heading: var(--font-bangers);
+  --theme-heading-tracking: 0.02em;
+  --theme-heading-leading: 1;
+  --theme-pattern: repeating-linear-gradient(
+    45deg,
+    oklch(0.5 0.12 240 / 0.06) 0 18px,
+    transparent 18px 36px
+  );
+}
+
+/* ---------------- SEAHAWKS ---------------- */
+[data-theme='seahawks'] {
+  color-scheme: dark;
+  --background: oklch(0.24 0.06 250);
+  --foreground: oklch(0.93 0.02 250);
+  --card: oklch(0.29 0.06 250);
+  --card-foreground: oklch(0.95 0.01 250);
+  --popover: oklch(0.29 0.06 250);
+  --popover-foreground: oklch(0.95 0.01 250);
+  --primary: oklch(0.78 0.2 130);
+  --primary-foreground: oklch(0.2 0.06 250);
+  --secondary: oklch(0.35 0.05 250);
+  --secondary-foreground: oklch(0.93 0.02 250);
+  --muted: oklch(0.32 0.04 250);
+  --muted-foreground: oklch(0.72 0.02 250);
+  --accent: oklch(0.78 0.2 130);
+  --accent-foreground: oklch(0.2 0.06 250);
+  --border: oklch(0.45 0.03 250);
+  --input: oklch(0.35 0.04 250);
+  --ring: oklch(0.78 0.2 130);
+  --radius: 0.25rem;
+  --theme-body: var(--font-oswald);
+  --theme-heading: var(--font-oswald);
+  --theme-heading-tracking: 0.04em;
+  --theme-heading-leading: 0.95;
+  --theme-pattern: linear-gradient(
+    115deg,
+    transparent 0 60%,
+    oklch(0.78 0.2 130 / 0.1) 60% 62%,
+    transparent 62% 70%,
+    oklch(0.72 0.02 250 / 0.08) 70% 71%,
+    transparent 71%
+  );
+  --theme-pattern-size: 100% 100%;
+}
+
+/* ---------------- DARK FANTASY ---------------- */
+[data-theme='darkfantasy'] {
+  color-scheme: dark;
+  --background: oklch(0.16 0.015 300);
+  --foreground: oklch(0.85 0.03 85);
+  --card: oklch(0.2 0.02 300);
+  --card-foreground: oklch(0.87 0.03 85);
+  --popover: oklch(0.2 0.02 300);
+  --popover-foreground: oklch(0.87 0.03 85);
+  --primary: oklch(0.72 0.11 75);
+  --primary-foreground: oklch(0.15 0.02 300);
+  --secondary: oklch(0.3 0.05 20);
+  --secondary-foreground: oklch(0.9 0.03 85);
+  --muted: oklch(0.24 0.02 300);
+  --muted-foreground: oklch(0.6 0.03 85);
+  --accent: oklch(0.45 0.16 20);
+  --accent-foreground: oklch(0.92 0.03 85);
+  --border: oklch(0.34 0.03 300);
+  --input: oklch(0.26 0.02 300);
+  --ring: oklch(0.72 0.11 75);
+  --radius: 0.125rem;
+  --theme-body: var(--font-garamond);
+  --theme-heading: var(--font-cinzel);
+  --theme-heading-tracking: 0.06em;
+  --theme-heading-leading: 1.15;
+  --theme-pattern: radial-gradient(
+    circle at 50% -10%,
+    oklch(0.45 0.16 20 / 0.22),
+    transparent 55%
+  );
+  --theme-pattern-size: 100% 100%;
+}
+
+/* ---------------- MINECRAFT ---------------- */
+[data-theme='minecraft'] {
+  color-scheme: light;
+  --background: oklch(0.8 0.05 78);
+  --foreground: oklch(0.26 0.03 60);
+  --card: oklch(0.88 0.04 95);
+  --card-foreground: oklch(0.26 0.03 60);
+  --popover: oklch(0.88 0.04 95);
+  --popover-foreground: oklch(0.26 0.03 60);
+  --primary: oklch(0.55 0.14 140);
+  --primary-foreground: oklch(0.98 0.01 95);
+  --secondary: oklch(0.45 0.06 60);
+  --secondary-foreground: oklch(0.96 0.01 95);
+  --muted: oklch(0.78 0.04 95);
+  --muted-foreground: oklch(0.4 0.03 60);
+  --accent: oklch(0.6 0.09 55);
+  --accent-foreground: oklch(0.98 0.01 95);
+  --border: oklch(0.4 0.04 60);
+  --input: oklch(0.72 0.04 95);
+  --ring: oklch(0.55 0.14 140);
+  --radius: 0rem;
+  --theme-body: var(--font-vt323);
+  --theme-heading: var(--font-vt323);
+  --theme-heading-tracking: 0.01em;
+  --theme-heading-leading: 1;
+  /* Tiled grass block: green grass cap + speckles over a dirt body,
+     dark block seams, and a bottom/right bevel so each 80px tile
+     reads as a 3D stacked block. Layers paint front -> back. */
+  --theme-pattern:
+    /* block seams */
+    linear-gradient(90deg, oklch(0.34 0.03 60 / 0.5) 0 2px, transparent 2px),
+    linear-gradient(oklch(0.34 0.03 60 / 0.5) 0 2px, transparent 2px),
+    /* bevel: right + bottom shadow inside each tile */
+    linear-gradient(to left, oklch(0.4 0.03 55 / 0.35) 0 4px, transparent 4px),
+    linear-gradient(to top, oklch(0.4 0.03 55 / 0.35) 0 4px, transparent 4px),
+    /* grass-cap speckles */
+    radial-gradient(oklch(0.7 0.15 140) 0 3px, transparent 3px),
+    radial-gradient(oklch(0.5 0.13 140) 0 3px, transparent 3px),
+    /* dirt speckles */
+    radial-gradient(oklch(0.56 0.05 60 / 0.6) 0 4px, transparent 4px),
+    radial-gradient(oklch(0.88 0.04 85 / 0.7) 0 3px, transparent 3px),
+    radial-gradient(oklch(0.56 0.05 60 / 0.6) 0 3px, transparent 3px),
+    radial-gradient(oklch(0.88 0.04 85 / 0.6) 0 4px, transparent 4px),
+    /* grass cap band */
+    linear-gradient(
+      to bottom,
+      oklch(0.6 0.14 140) 0 15px,
+      oklch(0.48 0.13 140) 15px 19px,
+      transparent 19px
+    );
+  --theme-pattern-size: 80px 80px;
+  --theme-pattern-pos:
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    26px 7px,
+    58px 11px,
+    18px 42px,
+    52px 30px,
+    36px 64px,
+    66px 54px,
+    0 0;
+}
+
+/* Minecraft's pixel font is small; bump base reading size. */
+[data-theme='minecraft'] {
+  font-size: 1.15rem;
+}

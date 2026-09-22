@@ -1,0 +1,16 @@
+---
+title: "Setting Sail with Distributed Systems"
+date: "2024-07-30"
+summary: "A crew is only as strong as its weakest link, and so is your cluster. Notes on consensus, trust, and chasing an impossible dream."
+tags: ["distributed systems", "anime", "One Piece"]
+---
+
+Every great crew has specialists — a navigator, a cook, a doctor — who each own one thing and trust the others to own theirs. A healthy distributed system is the same: services that do one job well and communicate through clear contracts instead of reaching into each other's kitchens.
+
+## Consensus is a crew agreement
+
+Raft and Paxos are just formalized ways for a crew to agree on which way the ship is pointing, even when messages get lost in a storm. The magic isn't the algorithm — it's accepting that some nodes will always be unreachable and building for it anyway.
+
+> I don't want to conquer anything. I just want the whole system to stay up when one node goes down.
+
+Set sail with idempotency, retries with backoff, and the humility to assume the network hates you. The Grand Line is just production with better weather effects.

@@ -1,0 +1,16 @@
+---
+title: "A Song of Bugs and Fixes"
+date: "2024-04-22"
+summary: "In the game of production, you win or you page. On heisenbugs, dread, and the long night of the on-call engineer."
+tags: ["debugging", "on-call", "dark fantasy"]
+---
+
+There is a particular dread to the pager going off at 3am. The graphs are red. The cause is unknown. And somewhere in a codebase older than your tenure, a bug has been sleeping, waiting for the exact traffic pattern that would wake it.
+
+## The heisenbug does not want to be seen
+
+Attach a debugger and it vanishes. Add a log line and the race condition resolves itself out of spite. These are the ghosts of concurrency, and you exorcise them not with cleverness but with patience, observability, and a willingness to stare into the abyss of a flame graph.
+
+> The night is dark and full of segfaults.
+
+When the fix finally lands, there is no glory. The graphs go green, the pager sleeps, and you write the post-mortem so the next watcher on the wall knows what came for you in the dark.
