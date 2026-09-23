@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function MemoryMatchPage() {
   return (
-    <ZeldaPage>
+    <ZeldaPage clip="zoras-domain">
       <div className="flex flex-col items-center">
         <div className="w-full max-w-md">
           <Link

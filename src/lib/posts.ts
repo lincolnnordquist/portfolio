@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { ZeldaClipSlug } from "@/lib/zelda-clips";
 
 const POSTS_DIR = path.join(process.cwd(), "src/content/blog");
 
@@ -10,6 +11,8 @@ export interface PostMeta {
   date: string;
   summary: string;
   tags?: string[];
+  /** Which background video plays behind this post - see src/lib/zelda-clips.ts. */
+  clip: ZeldaClipSlug;
 }
 
 export interface Post extends PostMeta {
@@ -27,6 +30,7 @@ function readPost(slug: string): Post {
     date: data.date,
     summary: data.summary,
     tags: data.tags,
+    clip: data.clip,
     content,
   };
 }

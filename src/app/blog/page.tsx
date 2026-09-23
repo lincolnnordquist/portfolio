@@ -7,7 +7,7 @@ export default function BlogIndex() {
   const posts = getAllPosts();
 
   return (
-    <ZeldaPage>
+    <ZeldaPage clip="clock-town">
       <div className="flex flex-col gap-8">
         <div className="flex max-w-2xl flex-col gap-4">
           <h1 className="theme-heading text-3xl font-semibold">Blog</h1>

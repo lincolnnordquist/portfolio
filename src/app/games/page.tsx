@@ -31,7 +31,7 @@ const GAMES = [
 
 export default function GamesPage() {
   return (
-    <ZeldaPage>
+    <ZeldaPage clip="astral-observatory">
       <div className="flex flex-col gap-8">
         <div className="flex max-w-2xl flex-col gap-4">
           <h1 className="theme-heading text-3xl font-semibold">Arcade</h1>

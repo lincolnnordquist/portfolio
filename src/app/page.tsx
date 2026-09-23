@@ -15,7 +15,7 @@ const STACK = [
 
 export default function Home() {
   return (
-    <ZeldaPage>
+    <ZeldaPage clip="hyrule-field">
       <div className="flex flex-col gap-8">
         <section className="flex flex-col gap-8 pb-8">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">

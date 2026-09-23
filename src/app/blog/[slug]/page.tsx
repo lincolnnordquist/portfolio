@@ -38,7 +38,7 @@ export default async function BlogPost({
   const post = getPostBySlug(slug);
 
   return (
-    <ZeldaPage>
+    <ZeldaPage clip={post.clip}>
       <Link
         href="/blog"
         className="theme-heading mb-10 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"

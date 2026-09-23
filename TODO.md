@@ -27,8 +27,12 @@ behind these.
       Fantasy are gone, `src/lib/themes.ts` deleted). Every page now uses
       the single Zelda video-background look via `ZeldaPage` — see
       `CLAUDE.md`.
-- [x] 9 clips in `public/zelda-backgrounds/`, each page independently
-      re-rolls a random clip on every navigation (not just once per section)
+- [x] 9 clips in `public/zelda-backgrounds/`. Was random-per-pageview, now
+      hardcoded: each page/post picks a specific clip explicitly (static
+      pages via a `clip` prop, blog posts via MDX frontmatter) — see
+      `CLAUDE.md` for exactly where to change each one
+- [ ] Current clip assignments are a first pass, picked for rough variety
+      rather than deep per-page meaning — revisit anytime
 - [ ] Clips still have their original audio tracks (harmless since always
       muted, but could be stripped to shave a little file size)
 - [ ] Clip filenames were clipped from existing YouTube uploads (not

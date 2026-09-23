@@ -1,23 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getRandomZeldaClip, type ZeldaClip } from "@/lib/zelda-clips";
+import { getZeldaClip, type ZeldaClipSlug } from "@/lib/zelda-clips";
 
-export default function ZeldaVideoBackground() {
-  const [clip, setClip] = useState<ZeldaClip | null>(null);
+export default function ZeldaVideoBackground({
+  clip: clipSlug,
+}: {
+  clip: ZeldaClipSlug;
+}) {
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    // Random pick + matchMedia are client-only reads with no server-render
-    // equivalent - picking during render would either crash on the server
-    // or produce a hydration mismatch, so this has to happen in an effect.
+    // prefers-reduced-motion is a client-only read with no server-render
+    // equivalent, so this has to happen in an effect.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setClip(getRandomZeldaClip());
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(query.matches);
+    setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }, []);
 
-  if (!clip) return null;
+  const clip = getZeldaClip(clipSlug);
 
   return (
     <div className="absolute inset-0 overflow-hidden">

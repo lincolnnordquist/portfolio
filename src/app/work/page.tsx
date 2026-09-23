@@ -44,7 +44,7 @@ const PROJECTS = [
 
 export default function Work() {
   return (
-    <ZeldaPage>
+    <ZeldaPage clip="stable">
       <div className="flex flex-col gap-4">
         <header className="flex max-w-2xl flex-col gap-4">
           <h1 className="theme-heading text-4xl font-bold tracking-tight sm:text-5xl">

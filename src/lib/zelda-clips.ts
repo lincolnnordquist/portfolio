@@ -17,6 +17,8 @@ const CLIP_LABELS: Record<string, string> = {
   "zoras-domain": "Zora's Domain",
 };
 
+export type ZeldaClipSlug = keyof typeof CLIP_LABELS;
+
 export const ZELDA_CLIPS: ZeldaClip[] = Object.entries(CLIP_LABELS).map(
   ([slug, label]) => ({
     slug,
@@ -26,6 +28,10 @@ export const ZELDA_CLIPS: ZeldaClip[] = Object.entries(CLIP_LABELS).map(
   }),
 );
 
-export function getRandomZeldaClip(): ZeldaClip {
-  return ZELDA_CLIPS[Math.floor(Math.random() * ZELDA_CLIPS.length)];
+export function getZeldaClip(slug: ZeldaClipSlug): ZeldaClip {
+  const clip = ZELDA_CLIPS.find((c) => c.slug === slug);
+  if (!clip) {
+    throw new Error(`Unknown Zelda clip slug: "${slug}"`);
+  }
+  return clip;
 }
