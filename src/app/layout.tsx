@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Cinzel_Decorative } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Press_Start_2P,
+  VT323,
+  Bangers,
+  Oswald,
+  Cinzel,
+  EB_Garamond,
+} from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -7,16 +16,37 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
 });
-const cinzelDecorative = Cinzel_Decorative({
+const pressStart = Press_Start_2P({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-cinzel-decorative",
+  variable: "--font-press-start",
+});
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vt323",
+});
+const bangers = Bangers({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bangers",
+});
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
+const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel" });
+const garamond = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-garamond",
 });
 
 const fontVars = [
   inter.variable,
   jetbrainsMono.variable,
-  cinzelDecorative.variable,
+  pressStart.variable,
+  vt323.variable,
+  bangers.variable,
+  oswald.variable,
+  cinzel.variable,
+  garamond.variable,
 ].join(" ");
 
 export const metadata: Metadata = {
